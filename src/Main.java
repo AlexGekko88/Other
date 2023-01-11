@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Main {
+public class Main {
 
     public static String[] products = { "Хлеб", "Пачка гречки", "Упаковка яиц", "Мороженное" };
     public static int[] prices = { 50, 135, 65, 53 };
@@ -12,15 +12,16 @@ class Main {
         System.out.println("Добро пожаловать в магазин!");
         System.out.println("Наш ассортимент:");
         for (int i = 0; i < products.length; i++) {
-            System.out.println("\t" + (i + 1) + ". " + products[i] + " за " + prices[i] + " за шт.");
+            System.out.println("\t" + (i + 1) + ". " + products[i] + " за " + prices[i] + " за шт. ");
         }
         System.out.println();
 
         Scanner scanner = new Scanner(System.in);
+
         int[] counts = new int[products.length];
 
         while (true) {
-            System.out.println("Введите номер товара и количество через пробел или end: ");
+            System.out.print("Введите номер товара и количество через пробел или end: ");
             String line = scanner.nextLine();
 
             if ("end".equals(line)) {
@@ -30,6 +31,7 @@ class Main {
             String[] parts = line.split(" ");
             int productNum = Integer.parseInt(parts[0]) - 1;
             int productCount = Integer.parseInt(parts[1]);
+
             counts[productNum] += productCount;
         }
 
@@ -60,7 +62,6 @@ class Main {
                     totalSum += prices[i] * counts[i];
                 }
             }
-
         }
 
         System.out.println("Итого: " + totalSum + " руб.");
